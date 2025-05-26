@@ -93,6 +93,15 @@ namespace Assets.Scripts.Items
             }
         }
 
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void InitializeAutomatically()
+        {
+            GameObject inventoryManager = new GameObject("InventoryManager");
+            inventoryManager.AddComponent<InventoryManager>();
+        }
+
+
         [System.Serializable]
         private class InventoryWrapper
         {

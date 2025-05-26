@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBoxPrefab;
     [SerializeField] private DialogueLine[] dialogueLines;
-    [SerializeField] private Image background; 
+    [SerializeField] private Image background;
+
+    public UnityEvent onEndDialog;
 
     public void TriggerDialogue()
     {
@@ -37,6 +40,7 @@ public class DialogueTrigger : MonoBehaviour
 
     protected virtual void AfterDialogue()
     {
+        onEndDialog?.Invoke();
         Debug.Log("After dialogue");
     }
 
