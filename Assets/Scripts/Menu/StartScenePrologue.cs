@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class StartScenePrologue : MonoBehaviour
@@ -14,6 +15,8 @@ public class StartScenePrologue : MonoBehaviour
 
     [SerializeField] private float _splashDuration = 2f;  
     [SerializeField] private float _fadeDuration = 1f;
+
+    
 
     private static int _countItems = 0;
 
