@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using Assets.Scripts.GlobalInformation;
 
 public class SandGame : MonoBehaviour
 {
@@ -212,12 +214,46 @@ public class SandGame : MonoBehaviour
         if (win)
         {
             ShowResultMessage("Победа!\nПесок не пройдёт.\nЗелёный фронт держится!", true);
+            // Переход в лобби
+            SceneManager.LoadScene("Lobby");
+            GlobalData.PreviousSceneName = "Level_2";
         }
         else
         {
             ShowResultMessage("Поражение...\nПесок поглотил всё живое.\nМир стал безжизненной пустыней.", false);
+            Invoke(nameof(RestartGame), 3.5f); 
         }
     }
+
+    public void RestartGame()
+    {
+        ClearGrid();
+
+
+        grid = new CellState[rows, cols];
+        uiGrid = new Image[rows, cols];
+        sandFront.Clear(); 
+
+        InitGrid();
+        InitSand();
+
+        HideResultMessage();
+        gameEnded = false;
+        waitingForPlayer = true;
+
+        
+    }
+
+    void HideResultMessage()
+    {
+        if (resultCanvas != null)
+        {
+            Destroy(resultCanvas.gameObject);
+            resultCanvas = null;
+            resultText = null;
+        }
+    }
+
 
     bool InBounds(int r, int c) => r >= 0 && r < rows && c >= 0 && c < cols;
 
