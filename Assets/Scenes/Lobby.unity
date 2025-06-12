@@ -2001,14 +2001,14 @@ RectTransform:
   - {fileID: 1085999248}
   - {fileID: 1487395673}
   - {fileID: 1779343713}
-  - {fileID: 818511633}
   - {fileID: 1703936247}
-  - {fileID: 43079226}
   - {fileID: 1413928526}
   - {fileID: 4596325}
   - {fileID: 1521379640}
   - {fileID: 754771328}
   - {fileID: 1334479812}
+  - {fileID: 818511633}
+  - {fileID: 43079226}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
