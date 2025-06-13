@@ -75,6 +75,10 @@ public class StartLobby : MonoBehaviour
         {
             SceneManager.LoadScene("Level_2");
         }
+        if (GlobalData.PreviousSceneName == "Level_2")
+        {
+            SceneManager.LoadScene("Level_3");
+        }
     }
 
     void Update()
