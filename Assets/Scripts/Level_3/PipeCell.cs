@@ -4,14 +4,16 @@ using UnityEngine.UI;
 
 public class PipeCell : MonoBehaviour
 {
-    public Image image;
-    public Sprite straightSprite;
-    public Sprite cornerSprite;
-    public Sprite tSprite;
-    public Sprite crossSprite;
+    [SerializeField] private Image _image;
+    [SerializeField] private Sprite _straightSprite;
+    [SerializeField] private Sprite _cornerSprite;
+    [SerializeField] private Sprite _tSprite;
+    [SerializeField] private Sprite _crossSprite;
 
-    public Sprite startSprite;
-    public Sprite endSprite;
+    [SerializeField] private Sprite _startSprite;
+    [SerializeField] private Sprite _endSprite;
+
+    private PipeGridManager _manager;
 
     public bool isEndpoint = false;
 
@@ -50,41 +52,44 @@ public class PipeCell : MonoBehaviour
     void Start()
     {
         UpdateSprite();
+        _manager = FindObjectOfType<PipeGridManager>();
     }
 
     public void UpdateSprite()
     {
         if (isEndpoint)
         {
-            image.sprite = startSprite;
+            _image.sprite = _startSprite;
             return;
         }
 
         switch (type)
         {
             case PipeType.Straight:
-                image.sprite = straightSprite;
+                _image.sprite = _straightSprite;
                 break;
             case PipeType.Corner:
-                image.sprite = cornerSprite;
+                _image.sprite = _cornerSprite;
                 break;
             case PipeType.TJunction:
-                image.sprite = tSprite;
+                _image.sprite = _tSprite;
                 break;
             case PipeType.Cross:
-                image.sprite = crossSprite;
+                _image.sprite = _crossSprite;
                 break;
         }
     }
 
     public void RotatePipe()
     {
-        rotation = (rotation - 90) % 360; // теперь по часовой!
+        rotation = (rotation - 90) % 360; 
         Debug.Log($"Повернута труба типа {type} на {rotation} градусов");
 
         var connections = GetConnections();
         string connsStr = string.Join(", ", connections);
         Debug.Log($"Выходы трубы: {connsStr}");
+
+        _manager.CheckConnection();
     }
 
     public List<Direction> GetConnections()
@@ -159,23 +164,5 @@ public class PipeCell : MonoBehaviour
             rotated.Add((Direction)newDir);
         }
         return rotated;
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Vector3 pos = transform.position;
-        foreach (var dir in GetConnections())
-        {
-            Vector3 offset = Vector3.zero;
-            switch (dir)
-            {
-                case Direction.Up: offset = Vector3.up; break;
-                case Direction.Right: offset = Vector3.right; break;
-                case Direction.Down: offset = Vector3.down; break;
-                case Direction.Left: offset = Vector3.left; break;
-            }
-            Gizmos.DrawLine(pos, pos + offset * 0.5f);
-        }
     }
 }

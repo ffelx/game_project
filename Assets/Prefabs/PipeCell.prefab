@@ -341,12 +341,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cce325dc921b14ab8aab880251d1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 4501641228650642918}
-  straightSprite: {fileID: 21300000, guid: 4123c2259a375a042a49ac74fff1ad41, type: 3}
-  cornerSprite: {fileID: 21300000, guid: af71d6b64d5f8ea429bcc5511b515c32, type: 3}
-  tSprite: {fileID: 0}
-  crossSprite: {fileID: 0}
-  startSprite: {fileID: 0}
-  endSprite: {fileID: 0}
+  _image: {fileID: 4501641228650642918}
+  _straightSprite: {fileID: 21300000, guid: 4123c2259a375a042a49ac74fff1ad41, type: 3}
+  _cornerSprite: {fileID: 21300000, guid: af71d6b64d5f8ea429bcc5511b515c32, type: 3}
+  _tSprite: {fileID: 0}
+  _crossSprite: {fileID: 0}
+  _startSprite: {fileID: 0}
+  _endSprite: {fileID: 0}
   isEndpoint: 0
   type: 0

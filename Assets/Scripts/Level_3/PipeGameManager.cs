@@ -2,86 +2,61 @@
 
 public class PipeGameManager : MonoBehaviour
 {
-    public GameObject pipePrefab;
-    public Transform gridParent;
+    [SerializeField] private GameObject _pipePrefab;
+    [SerializeField] private Transform _gridParent;
 
-    public int gridSizeX = 5;
-    public int gridSizeY = 5;
+    [SerializeField] private int _gridSizeX = 5;
+    [SerializeField] private int _gridSizeY = 5;
 
-    public PipeGridManager gridManager;
+    [SerializeField] private PipeGridManager _gridManager;
 
     void Start()
     {
         GenerateGrid();
 
-        if (gridManager != null)
+        if (_gridManager != null)
         {
-            gridManager.width = gridSizeX;
-            gridManager.height = gridSizeY;
-            gridManager.gridParent = gridParent;
-            gridManager.InitializeGrid(); // вызываем **после** генерации трубы
+            _gridManager.width = _gridSizeX;
+            _gridManager.height = _gridSizeY;
+            _gridManager.gridParent = _gridParent;
+            _gridManager.InitializeGrid(); 
         }
     }
 
     public void GenerateGrid()
     {
-        // Выбери нужный способ генерации:
         //GenerateTestGrid();
         GenerateRandomGrid();
-    }
-
-    void GenerateTestGrid()
-    {
-        for (int y = 0; y < gridSizeY; y++)
-        {
-            for (int x = 0; x < gridSizeX; x++)
-            {
-                GameObject pipe = Instantiate(pipePrefab, gridParent);
-                pipe.name = $"Pipe ({x},{y})";
-
-                var pipeCell = pipe.GetComponent<PipeCell>();
-                if (pipeCell == null)
-                {
-                    Debug.LogError("Prefab не содержит PipeCell!");
-                    continue;
-                }
-
-                if ((x == 0 && y == 0) || (x == gridSizeX - 1 && y == gridSizeY - 1))
-                {
-                    pipeCell.type = PipeCell.PipeType.Cross;
-                    pipeCell.isEndpoint = true;
-                    pipeCell.rotation = 0;
-                }
-                else if (x == gridSizeX - 1 && y == 0)
-                {
-                    pipeCell.type = PipeCell.PipeType.Corner;
-                    pipeCell.isEndpoint = false;
-                    pipeCell.rotation = 180;
-                }
-                else
-                {
-                    pipeCell.type = PipeCell.PipeType.Straight;
-                    pipeCell.isEndpoint = false;
-                    pipeCell.rotation = 0;
-                }
-
-                pipeCell.transform.rotation = Quaternion.Euler(0, 0, pipeCell.rotation);
-                pipeCell.UpdateSprite();
-            }
-        }
-
-        Debug.Log("✅ Тестовая сетка сгенерирована!");
+     
     }
 
     void GenerateRandomGrid()
     {
-        System.Array types = new PipeCell.PipeType[] { PipeCell.PipeType.Straight, PipeCell.PipeType.Corner };
+        //var seed = 1;
+        var seed = 907;
 
-        for (int y = 0; y < gridSizeY; y++)
+        var random = Random.Range(0, 3);
+        //if (random == 0)
+        //{
+        //    seed = 700;
+        //}
+        //else if (random == 1)
+        //{
+        //    seed = 900;
+        //}
+        System.Random pseudoRandom = new System.Random(seed);
+
+        PipeCell.PipeType[] types = new PipeCell.PipeType[]
         {
-            for (int x = 0; x < gridSizeX; x++)
+        PipeCell.PipeType.Straight,
+        PipeCell.PipeType.Corner
+        };
+
+        for (int y = 0; y < _gridSizeY; y++)
+        {
+            for (int x = 0; x < _gridSizeX; x++)
             {
-                GameObject pipe = Instantiate(pipePrefab, gridParent);
+                GameObject pipe = Instantiate(_pipePrefab, _gridParent);
                 pipe.name = $"Pipe ({x},{y})";
 
                 var pipeCell = pipe.GetComponent<PipeCell>();
@@ -91,9 +66,10 @@ public class PipeGameManager : MonoBehaviour
                     continue;
                 }
 
-                pipeCell.type = (PipeCell.PipeType)types.GetValue(Random.Range(0, types.Length));
-                pipeCell.rotation = 90 * Random.Range(0, 4);
-                pipeCell.isEndpoint = (x == 0 && y == 0) || (x == gridSizeX - 1 && y == gridSizeY - 1);
+                // Используем наш псевдорандом с заданным сидом
+                pipeCell.type = types[pseudoRandom.Next(0, types.Length)];
+                pipeCell.rotation = 90 * pseudoRandom.Next(0, 4);
+                pipeCell.isEndpoint = (x == 0 && y == 0) || (x == _gridSizeX - 1 && y == _gridSizeY - 1);
 
                 // Если endpoint — обязательно Cross
                 if (pipeCell.isEndpoint)
@@ -104,6 +80,6 @@ public class PipeGameManager : MonoBehaviour
             }
         }
 
-        Debug.Log("🎲 Рандомная сетка сгенерирована!");
+        Debug.Log($"Сетка сгенерирована");
     }
 }

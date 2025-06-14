@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.GlobalInformation;
+using Assets.Scripts.Level_2;
 
 public class SandGame : MonoBehaviour
 {
@@ -23,6 +24,28 @@ public class SandGame : MonoBehaviour
     private bool waitingForPlayer = true;
 
     private List<Vector2Int> sandFront = new();
+
+    private void Update()
+    {
+        FitGridToScreen();
+    }
+
+    void FitGridToScreen()
+    {
+        var rt = gridParent.GetComponent<RectTransform>();
+
+        float screenHeight = Screen.height;
+        float screenWidth = Screen.width;
+
+        float referenceAspect = 16f / 9f;
+        float currentAspect = screenWidth / screenHeight;
+
+        float scaleFactor = currentAspect < referenceAspect
+            ? currentAspect / referenceAspect 
+            : referenceAspect / currentAspect; 
+
+        rt.localScale = new Vector3(scaleFactor, scaleFactor, 1);
+    }
 
     void OnEnable()
     {
@@ -246,11 +269,11 @@ public class SandGame : MonoBehaviour
 
     void HideResultMessage()
     {
-        if (resultCanvas != null)
+        if (Shower.resultCanvas != null)
         {
-            Destroy(resultCanvas.gameObject);
-            resultCanvas = null;
-            resultText = null;
+            Destroy(Shower.resultCanvas.gameObject);
+            Shower.resultCanvas = null;
+            Shower.resultText = null;
         }
     }
 
@@ -274,83 +297,14 @@ public class SandGame : MonoBehaviour
         }
     }
 
-    // ==========================
-    // === ПОКАЗ РЕЗУЛЬТАТА ====
-    // ==========================
-    private CanvasGroup resultCanvas;
-    private Text resultText;
+
 
     void ShowResultMessage(string message, bool victory)
     {
-        if (resultCanvas == null)
-            CreateResultUI();
-
-        resultText.text = message;
-        resultText.color = victory ? new Color(0.8f, 1f, 0.8f) : new Color(1f, 0.7f, 0.7f); // зелёный/красный
-
-        StartCoroutine(FadeResultRoutine());
+        //if (resultCanvas == null) Shower.CreateResultUI();
+        //resultText.text = message;
+        //resultText.color = victory ? new Color(0.8f, 1f, 0.8f) : new Color(1f, 0.7f, 0.7f); 
+        StartCoroutine(Shower.FadeResultRoutine(message, victory));
     }
 
-    System.Collections.IEnumerator FadeResultRoutine()
-    {
-        float duration = 0.5f;
-        float holdTime = 3f;
-
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float a = t / duration;
-            resultCanvas.alpha = a;
-            yield return null;
-        }
-        resultCanvas.alpha = 1;
-
-        yield return new WaitForSeconds(holdTime);
-
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float a = 1 - (t / duration);
-            resultCanvas.alpha = a;
-            yield return null;
-        }
-        resultCanvas.alpha = 0;
-    }
-
-    void CreateResultUI()
-    {
-        GameObject canvasGO = new GameObject("ResultCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
-        Canvas canvas = canvasGO.GetComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = 1000;
-
-        CanvasScaler scaler = canvasGO.GetComponent<CanvasScaler>();
-        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        scaler.referenceResolution = new Vector2(1920, 1080);
-
-        GameObject panelGO = new GameObject("Panel", typeof(Image), typeof(CanvasGroup));
-        panelGO.transform.SetParent(canvasGO.transform, false);
-        Image panelImage = panelGO.GetComponent<Image>();
-        panelImage.color = new Color(0f, 0f, 0f, 0.75f);
-
-        RectTransform panelRect = panelGO.GetComponent<RectTransform>();
-        panelRect.anchorMin = Vector2.zero;
-        panelRect.anchorMax = Vector2.one;
-        panelRect.offsetMin = Vector2.zero;
-        panelRect.offsetMax = Vector2.zero;
-
-        resultCanvas = panelGO.GetComponent<CanvasGroup>();
-        resultCanvas.alpha = 0;
-
-        GameObject textGO = new GameObject("Text", typeof(Text));
-        textGO.transform.SetParent(panelGO.transform, false);
-        resultText = textGO.GetComponent<Text>();
-        resultText.alignment = TextAnchor.MiddleCenter;
-        resultText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        resultText.fontSize = 64;
-        resultText.horizontalOverflow = HorizontalWrapMode.Wrap;
-        resultText.verticalOverflow = VerticalWrapMode.Overflow;
-        resultText.rectTransform.anchorMin = Vector2.zero;
-        resultText.rectTransform.anchorMax = Vector2.one;
-        resultText.rectTransform.offsetMin = Vector2.zero;
-        resultText.rectTransform.offsetMax = Vector2.zero;
-    }
 }

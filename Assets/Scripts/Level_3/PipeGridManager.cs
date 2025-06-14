@@ -1,31 +1,50 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Level_2;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PipeGridManager : MonoBehaviour
 {
     public int width = 5;
     public int height = 5;
-    public PipeCell[,] grid;
-
-    public Vector2Int startCell;
-    public Vector2Int endCell;
-
-    // Объект, в котором лежат трубы
     public Transform gridParent;
 
-    // Не вызываем InitializeGrid в Start, чтобы не было конфликта с генерацией
-    void Start()
+    [SerializeField] private PipeCell[,] grid;
+    [SerializeField] private Vector2Int startCell;
+    [SerializeField] private Vector2Int endCell;
+
+    [SerializeField] private GameObject _nextDialog;
+    [SerializeField] private GameObject _game;
+
+    private void Update()
     {
-        // Пусто
+        FitGridToScreen();
     }
 
-    // Вызывать после генерации объектов в gridParent
+    void FitGridToScreen()
+    {
+        var rt = gridParent.GetComponent<RectTransform>();
+
+        float screenHeight = Screen.height;
+        float screenWidth = Screen.width;
+
+        float referenceAspect = 16f / 9f;
+        float currentAspect = screenWidth / screenHeight;
+
+        float scaleFactor = currentAspect < referenceAspect
+            ? currentAspect / referenceAspect
+            : referenceAspect / currentAspect;
+
+        rt.localScale = new Vector3(scaleFactor, scaleFactor, 1);
+    }
+
+
     public void InitializeGrid()
     {
         if (gridParent == null)
         {
-            Debug.LogError("PipeGridManager: gridParent не установлен!");
+            Debug.LogError("PipeGridManager: gridParent не установлен");
             return;
         }
 
@@ -117,11 +136,13 @@ public class PipeGridManager : MonoBehaviour
         }
 
         if (visited[endCell.x, endCell.y])
-            Debug.Log("PipeGridManager: Соединение найдено! ✅");
-        else
-            Debug.Log("PipeGridManager: Нет пути от A до B ❌");
+        {
+            Debug.Log("PipeGridManager: Соединение найдено! ");
+            Win();
+            return;
+        }
+        Debug.Log("PipeGridManager: Нет пути от A до B ");
     }
-
 
     Vector2Int GetNextCoord(Vector2Int from, PipeCell.Direction dir)
     {
@@ -144,4 +165,23 @@ public class PipeGridManager : MonoBehaviour
     {
         return coord.x >= 0 && coord.x < width && coord.y >= 0 && coord.y < height;
     }
+
+    private void Win()
+    {
+        // Запускаем корутину для отображения результата
+        StartCoroutine(ShowVictoryMessage());
+    }
+
+    private IEnumerator ShowVictoryMessage()
+    {
+        //Thread.Sleep(2000);
+        yield return new WaitForSeconds(0.01f);
+        Thread.Sleep(1500);
+        yield return StartCoroutine(Shower.FadeResultRoutine("Победа!", true));
+        _game.SetActive(false);
+        _nextDialog.SetActive(true);
+    }
+
+
+
 }

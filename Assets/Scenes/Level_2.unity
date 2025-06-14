@@ -526,6 +526,9 @@ MonoBehaviour:
       \n\r"
     backgroundSprite: {fileID: 21300000, guid: db08c27323a458a43b589d66447319c6, type: 3}
   background: {fileID: 2043233268}
+  onEndDialog:
+    m_PersistentCalls:
+      m_Calls: []
   imageToFlip: {fileID: 0}
   dialogObj: {fileID: 2084141558}
 --- !u!1 &2043233266
@@ -639,8 +642,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -428, y: 455}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 21.999956, y: -34.48401}
+  m_SizeDelta: {x: 1075.7568, y: 1075.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084141560
 MonoBehaviour:
