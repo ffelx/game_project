@@ -32,18 +32,16 @@ public class PipeGameManager : MonoBehaviour
 
     void GenerateRandomGrid()
     {
-        //var seed = 1;
-        var seed = 907;
-
+        var seed = 1;
         var random = Random.Range(0, 3);
-        //if (random == 0)
-        //{
-        //    seed = 700;
-        //}
-        //else if (random == 1)
-        //{
-        //    seed = 900;
-        //}
+        if (random == 0)
+        {
+            seed = 700;
+        }
+        else if (random == 1)
+        {
+            seed = 907;
+        }
         System.Random pseudoRandom = new System.Random(seed);
 
         PipeCell.PipeType[] types = new PipeCell.PipeType[]
@@ -62,16 +60,13 @@ public class PipeGameManager : MonoBehaviour
                 var pipeCell = pipe.GetComponent<PipeCell>();
                 if (pipeCell == null)
                 {
-                    Debug.LogError("Prefab не содержит PipeCell!");
                     continue;
                 }
 
-                // Используем наш псевдорандом с заданным сидом
                 pipeCell.type = types[pseudoRandom.Next(0, types.Length)];
                 pipeCell.rotation = 90 * pseudoRandom.Next(0, 4);
                 pipeCell.isEndpoint = (x == 0 && y == 0) || (x == _gridSizeX - 1 && y == _gridSizeY - 1);
 
-                // Если endpoint — обязательно Cross
                 if (pipeCell.isEndpoint)
                     pipeCell.type = PipeCell.PipeType.Cross;
 
@@ -80,6 +75,5 @@ public class PipeGameManager : MonoBehaviour
             }
         }
 
-        Debug.Log($"Сетка сгенерирована");
     }
 }

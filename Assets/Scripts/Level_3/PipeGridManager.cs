@@ -32,11 +32,35 @@ public class PipeGridManager : MonoBehaviour
         float referenceAspect = 16f / 9f;
         float currentAspect = screenWidth / screenHeight;
 
-        float scaleFactor = currentAspect < referenceAspect
-            ? currentAspect / referenceAspect
-            : referenceAspect / currentAspect;
+      
+        float scaleFactor = 1f;
 
+      
+        if (currentAspect > referenceAspect)
+        {
+          
+            float excessRatio = currentAspect / referenceAspect;
+            scaleFactor = 1f / excessRatio;
+
+            scaleFactor *= 0.9f;
+        }
         rt.localScale = new Vector3(scaleFactor, scaleFactor, 1);
+        //var rt = gridParent.GetComponent<RectTransform>();
+
+        //float screenHeight = Screen.height;
+        //float screenWidth = Screen.width;
+
+        //float referenceAspect = 16f / 9f;
+        //float currentAspect = screenWidth / screenHeight;
+
+        //float scaleFactor = currentAspect < referenceAspect
+        //    ? currentAspect / referenceAspect
+        //    : referenceAspect / currentAspect;
+
+        //rt.localScale = new Vector3(scaleFactor, scaleFactor, 1);
+
+        //Vector2 canvasCenter = new Vector2(screenWidth / 2f, screenHeight / 2f);
+        //rt.position = canvasCenter;
     }
 
 

@@ -237,7 +237,6 @@ public class SandGame : MonoBehaviour
         if (win)
         {
             ShowResultMessage("Победа!\nПесок не пройдёт.\nЗелёный фронт держится!", true);
-            // Переход в лобби
             SceneManager.LoadScene("Lobby");
             GlobalData.PreviousSceneName = "Level_2";
         }

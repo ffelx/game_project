@@ -46,7 +46,7 @@ namespace Assets.Scripts.Level_2
         {
             if (resultCanvas == null) Shower.CreateResultUI();
 
-            resultCanvas.gameObject.SetActive(true); // <<< Добавлено
+            resultCanvas.gameObject.SetActive(true); 
 
             resultText.text = message;
             resultText.color = victory ? new Color(0.8f, 1f, 0.8f) : new Color(1f, 0.7f, 0.7f);
