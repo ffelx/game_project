@@ -1,4 +1,5 @@
 using Assets.Scripts.GlobalInformation;
+using Assets.Scripts.Menu;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -71,13 +72,18 @@ public class StartLobby : MonoBehaviour
 
     public void MoveToNextLevel()
     {
-        if (GlobalData.PreviousSceneName == "Level_1")
+        var save = SaveManager.Load(); 
+        if (save.currentLevel == 2)
         {
             SceneManager.LoadScene("Level_2");
         }
-        if (GlobalData.PreviousSceneName == "Level_2")
+        else if (save.currentLevel == 3)
         {
             SceneManager.LoadScene("Level_3");
+        }
+        else if (save.currentLevel == 4)
+        {
+            SceneManager.LoadScene("Level_4");
         }
     }
 

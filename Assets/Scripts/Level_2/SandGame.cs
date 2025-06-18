@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.GlobalInformation;
 using Assets.Scripts.Level_2;
+using System.Collections;
 
 public class SandGame : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class SandGame : MonoBehaviour
     private bool waitingForPlayer = true;
 
     private List<Vector2Int> sandFront = new();
+
+    [SerializeField] private Dialog_1_1 _nextDialogueBox;
 
     private void Update()
     {
@@ -237,20 +240,26 @@ public class SandGame : MonoBehaviour
         if (win)
         {
             ShowResultMessage("Победа!\nПесок не пройдёт.\nЗелёный фронт держится!", true);
-            SceneManager.LoadScene("Lobby");
-            GlobalData.PreviousSceneName = "Level_2";
+            StartCoroutine(Win());
         }
         else
         {
             ShowResultMessage("Поражение...\nПесок поглотил всё живое.\nМир стал безжизненной пустыней.", false);
-            Invoke(nameof(RestartGame), 3.5f); 
+            Invoke(nameof(RestartGame), 3.5f);
         }
+    }
+
+    IEnumerator Win()
+    {
+        yield return new WaitForSeconds(3.5f);
+        HideResultMessage();
+        _nextDialogueBox.gameObject.SetActive(true);
+        this.gameObject.SetActive(false);
     }
 
     public void RestartGame()
     {
         ClearGrid();
-
 
         grid = new CellState[rows, cols];
         uiGrid = new Image[rows, cols];

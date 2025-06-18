@@ -9,5 +9,6 @@ namespace Assets.Scripts.GlobalInformation
     static class GlobalData
     {
         public static string PreviousSceneName { get; set; }
+        public static float Volume { get; set; }
     }
 }

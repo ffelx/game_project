@@ -68,13 +68,7 @@ public class PipeGridManager : MonoBehaviour
     {
         if (gridParent == null)
         {
-            Debug.LogError("PipeGridManager: gridParent не установлен");
             return;
-        }
-
-        if (gridParent.childCount < width * height)
-        {
-            Debug.LogWarning($"PipeGridManager: В gridParent всего {gridParent.childCount} детей, а ожидается {width * height}");
         }
 
         grid = new PipeCell[width, height];
@@ -84,7 +78,6 @@ public class PipeGridManager : MonoBehaviour
             PipeCell pipe = gridParent.GetChild(i).GetComponent<PipeCell>();
             if (pipe == null)
             {
-                Debug.LogWarning($"PipeGridManager: Дочерний объект #{i} не содержит PipeCell!");
                 continue;
             }
 
@@ -93,7 +86,6 @@ public class PipeGridManager : MonoBehaviour
 
             if (x >= width || y >= height)
             {
-                Debug.LogWarning($"PipeGridManager: Индексы выходят за пределы сетки: x={x}, y={y}");
                 continue;
             }
 
@@ -102,8 +94,6 @@ public class PipeGridManager : MonoBehaviour
 
         startCell = new Vector2Int(0, 0);
         endCell = new Vector2Int(width - 1, height - 1);
-
-        Debug.Log("PipeGridManager: Инициализация сетки завершена");
     }
 
     public void CheckConnection()
@@ -119,14 +109,12 @@ public class PipeGridManager : MonoBehaviour
 
         if (!InBounds(startCell))
         {
-            Debug.LogError($"PipeGridManager: Стартовая клетка {startCell} вне границ!");
             return;
         }
 
         PipeCell startPipe = grid[startCell.x, startCell.y];
         if (startPipe == null || startPipe.GetConnections().Count == 0)
         {
-            Debug.LogError($"PipeGridManager: Стартовая клетка {startCell} пуста или не имеет выходов!");
             return;
         }
 
@@ -192,7 +180,6 @@ public class PipeGridManager : MonoBehaviour
 
     private void Win()
     {
-        // Запускаем корутину для отображения результата
         StartCoroutine(ShowVictoryMessage());
     }
 

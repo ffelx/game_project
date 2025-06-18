@@ -1,4 +1,5 @@
 using Assets.Scripts.GlobalInformation;
+using Assets.Scripts.Menu;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -97,6 +98,9 @@ public class StartScenePrologue : MonoBehaviour
         if (_countItems >= maxItems)
         {
             GlobalData.PreviousSceneName = "Level_1";
+            var data = SaveManager.Load();
+            data.currentLevel = 2;  
+            SaveManager.Save(data);
             SceneManager.LoadScene("Lobby");
         }
     }
