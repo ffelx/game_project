@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [Serializable]
@@ -12,7 +13,7 @@ public class DialogueLine
     public Sprite backgroundSprite;
 }
 
-public class DialogueBox : MonoBehaviour
+public class DialogueBox : MonoBehaviour, IPointerClickHandler
 {
     private Image _targetBackground; 
     [SerializeField] private Transform _backgroundContainer; 
@@ -92,20 +93,52 @@ public class DialogueBox : MonoBehaviour
         _isTyping = false;
     }
 
-    private void Update()
+    //private void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        if (_isTyping)
+    //        {
+    //            StopAllCoroutines();
+    //            _textComponent.text = _lines[_currentLine - 1].text;
+    //            _isTyping = false;
+    //        }
+    //        else
+    //        {
+    //            ShowNextLine();
+    //        }
+    //    }
+
+
+    //}
+
+    public void Click()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (_isTyping)
         {
-            if (_isTyping)
-            {
-                StopAllCoroutines();
-                _textComponent.text = _lines[_currentLine - 1].text;
-                _isTyping = false;
-            }
-            else
-            {
-                ShowNextLine();
-            }
+            // Закончить печать текста сразу
+            StopAllCoroutines();
+            _textComponent.text = _lines[_currentLine - 1].text;
+            _isTyping = false;
+        }
+        else
+        {
+            ShowNextLine();
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (_isTyping)
+        {
+            // Закончить печать текста сразу
+            StopAllCoroutines();
+            _textComponent.text = _lines[_currentLine - 1].text;
+            _isTyping = false;
+        }
+        else
+        {
+            ShowNextLine();
         }
     }
 

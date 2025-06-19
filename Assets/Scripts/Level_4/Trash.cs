@@ -1,9 +1,30 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Trash : MonoBehaviour
 {
     [SerializeField] private float _speed = 2f;
     public static float speed;
+    public static int countMissedTrash;
+
+    [SerializeField] private List<Sprite> randomSprites;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (randomSprites != null && randomSprites.Count > 0)
+        {
+            int index = Random.Range(0, randomSprites.Count);
+            spriteRenderer.sprite = randomSprites[index];
+        }
+        else
+        {
+            Debug.LogWarning("randomSprites пуст или не задан", this);
+        }
+    }
+
 
     void Update()
     {
@@ -17,14 +38,28 @@ public class Trash : MonoBehaviour
 
         if (transform.position.y < -6f)
         {
-            Destroy(gameObject);
-            BasketController.Score -= 5;
-            if (BasketController.Score < 0)
-            {
-                BasketController.Score = 0;
-            }
+            TrashMiss();
         }
     }
+
+    public void TrashMiss()
+    {
+        BasketController.Score -= 5;
+        countMissedTrash += 1;
+        if (BasketController.Score < 0)
+        {
+            BasketController.Score = 0;
+        }
+        if (countMissedTrash == 1 || (countMissedTrash % 5 == 0 && countMissedTrash != 0))
+        {
+            var helper = FindObjectOfType<Helper>();
+            helper.ShowBadDialog();
+        }
+        Destroy(gameObject);
+       
+    }
+
+    
 
     void OnTriggerEnter2D(Collider2D other)
     {

@@ -27,14 +27,28 @@ public class StartLobby : MonoBehaviour
         {
             lines = new List<DialogueLine>()
             {
-                new DialogueLine() {text = "Ты пришел с первого уровня"},
+                new DialogueLine() {text = "Был пройден первый уровень."},
             };
         }
         else if (GlobalData.PreviousSceneName == "Level_2")
         {
             lines = new List<DialogueLine>()
             {
-                new DialogueLine() {text = "Ты пришел со второго уровня"},
+                new DialogueLine() {text = "Был пройден второй уровень."},
+            };
+        }
+        else if (GlobalData.PreviousSceneName == "Level_3")
+        {
+            lines = new List<DialogueLine>()
+            {
+                new DialogueLine() {text = "Был пройден третий уровень."},
+            };
+        }
+        else if (GlobalData.PreviousSceneName == "Level_4")
+        {
+            lines = new List<DialogueLine>()
+            {
+                new DialogueLine() {text = "Был пройден четвертый уровень."},
             };
         }
         if (lines != null)

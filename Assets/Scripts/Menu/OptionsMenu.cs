@@ -14,6 +14,11 @@ public class OptionsMenu : MonoBehaviour
         _slider.value = data.volume;
     }
 
+    void OnEnable()
+    {
+        transform.SetAsLastSibling();
+    }
+
     public void SaveOptions()
     {
         PlayerData data = SaveManager.Load();
