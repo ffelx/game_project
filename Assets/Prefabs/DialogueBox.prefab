@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eed1ca546caece4d88c1e67b9aab48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundContainer: {fileID: 0}
+  _backgroundContainer: {fileID: 3576719296431558769}
   _textComponent: {fileID: 5974994288068547099}
   _windowImage: {fileID: 2236491031435236958}
   _fadeDuration: 0.5
