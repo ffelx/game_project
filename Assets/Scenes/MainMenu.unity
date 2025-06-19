@@ -3094,6 +3094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714044fbbdb174d49b134c4a5934b8de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainMenuButton: {fileID: 1364956697}
+  _exitButton: {fileID: 690604263}
   _slider: {fileID: 490620909}
 --- !u!1 &1602822988
 GameObject:

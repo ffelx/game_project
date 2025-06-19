@@ -13,6 +13,10 @@ public class OptionsButton : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        foreach (var dialog in FindObjectsOfType<DialogueBox>())
+        {
+            Destroy(dialog.gameObject);
+        }
     }
 
     public void Exit()

@@ -15,6 +15,7 @@ public class PipeCell : MonoBehaviour
 
     private PipeGridManager _manager;
 
+    public bool isStartpoint = false;
     public bool isEndpoint = false;
 
     public enum PipeType
@@ -58,6 +59,11 @@ public class PipeCell : MonoBehaviour
     public void UpdateSprite()
     {
         if (isEndpoint)
+        {
+            _image.sprite = _endSprite;
+            return;
+        }
+        if (isStartpoint)
         {
             _image.sprite = _startSprite;
             return;
