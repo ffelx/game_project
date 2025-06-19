@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Slider _slider;
 
 
-    private string _gameSceneName = "Level_1";
+    //private string _gameSceneName = "Level_1";
 
     public void Start()
     {

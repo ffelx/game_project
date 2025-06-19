@@ -23,11 +23,9 @@ public class DescriptionPopup : MonoBehaviour
             itemImage.color = Color.white;
             blackBackground.color = new Color(0, 0, 0, 0.8f);    
             DontDestroyOnLoad(gameObject);
-            Debug.Log("✅ DescriptionPopup.Instance успешно создан");
         }
         else
         {
-            Debug.LogWarning("❌ DescriptionPopup дублируется и будет уничтожён");
             Destroy(gameObject);
         }
         this.gameObject.SetActive(false);

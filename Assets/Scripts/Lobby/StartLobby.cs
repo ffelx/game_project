@@ -48,9 +48,10 @@ public class StartLobby : MonoBehaviour
         {
             lines = new List<DialogueLine>()
             {
-                new DialogueLine() {text = "Был пройден четвертый уровень."},
+                new DialogueLine() { text = "Был пройден четвертый уровень."},
             };
         }
+       
         if (lines != null)
         {
             var type = typeof(DialogueTrigger);
@@ -98,6 +99,10 @@ public class StartLobby : MonoBehaviour
         else if (save.currentLevel == 4)
         {
             SceneManager.LoadScene("Level_4");
+        }
+        else if (save.currentLevel == 5)
+        {
+            SceneManager.LoadScene("Level_5");
         }
     }
 

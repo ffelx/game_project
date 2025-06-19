@@ -8,7 +8,7 @@ public class BoardUI : MonoBehaviour
 {
     [SerializeField] private Transform contentParent; 
     [SerializeField] private GameObject itemSlotPrefab; 
-    [SerializeField] private string itemsFolder = "Items"; 
+    //[SerializeField] private string itemsFolder = "Items"; 
     private List<ItemSlot> _spawnedSlots = new List<ItemSlot>();
 
     [SerializeField] private Sprite _itemSprite;
