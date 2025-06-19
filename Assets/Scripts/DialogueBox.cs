@@ -93,30 +93,11 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
         _isTyping = false;
     }
 
-    //private void Update()
-    //{
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        if (_isTyping)
-    //        {
-    //            StopAllCoroutines();
-    //            _textComponent.text = _lines[_currentLine - 1].text;
-    //            _isTyping = false;
-    //        }
-    //        else
-    //        {
-    //            ShowNextLine();
-    //        }
-    //    }
-
-
-    //}
 
     public void Click()
     {
         if (_isTyping)
         {
-            // Закончить печать текста сразу
             StopAllCoroutines();
             _textComponent.text = _lines[_currentLine - 1].text;
             _isTyping = false;
@@ -131,7 +112,6 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
     {
         if (_isTyping)
         {
-            // Закончить печать текста сразу
             StopAllCoroutines();
             _textComponent.text = _lines[_currentLine - 1].text;
             _isTyping = false;

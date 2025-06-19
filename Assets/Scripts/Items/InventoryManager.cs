@@ -77,13 +77,11 @@ namespace Assets.Scripts.Items
                     }
                     else
                     {
-                        Debug.LogWarning("Список предметов в файле пуст или повреждён: " + path);
                         _items = new List<Item>();
                     }
                 }
                 else
                 {
-                    Debug.LogWarning("Файл сохранения повреждён: " + path);
                     _items = new List<Item>();
                 }
             }

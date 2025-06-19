@@ -5,9 +5,4 @@ using UnityEngine.EventSystems;
 
 public class ClickBlocker : MonoBehaviour
 {
-    //public void OnPointerClick(PointerEventData eventData)
-    //{
-    //    Debug.Log("Click blocked by UI");
-    //    eventData.Use(); 
-    //}
 }

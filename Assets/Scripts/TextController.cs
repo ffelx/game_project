@@ -16,7 +16,6 @@ public class TextController : MonoBehaviour
     private bool isTyping = false;
     void Start()
     {
-        //HideWindow();
         ShowNextLine();
     }
 

@@ -8,10 +8,5 @@ public class PopupInitializer2 : MonoBehaviour
     private void Awake()
     {
         popupPrefab.SetActive(true);
-        //if (DescriptionPopup.Instance == null)
-        //{
-        //    GameObject popupGO = Instantiate(popupPrefab);
-        //    popupGO.name = "DescriptionPopup";
-        //}
     }
 }

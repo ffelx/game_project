@@ -19,10 +19,6 @@ public class Trash : MonoBehaviour
             int index = Random.Range(0, randomSprites.Count);
             spriteRenderer.sprite = randomSprites[index];
         }
-        else
-        {
-            Debug.LogWarning("randomSprites пуст или не задан", this);
-        }
     }
 
 

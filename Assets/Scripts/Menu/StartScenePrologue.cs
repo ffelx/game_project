@@ -89,12 +89,10 @@ public class StartScenePrologue : MonoBehaviour
     public static void AddItem()
     {
         _countItems += 1;
-        Debug.Log("cnt: " + _countItems);
     }
     public static void TryEndLevel()
     {
         int maxItems = 3;
-        Debug.Log("cnt: " + _countItems);
         if (_countItems >= maxItems)
         {
             GlobalData.PreviousSceneName = "Level_1";

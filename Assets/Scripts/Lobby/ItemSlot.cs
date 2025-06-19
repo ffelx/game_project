@@ -20,10 +20,6 @@ public class ItemSlot : MonoBehaviour
         {
             iconImage.sprite = sprite;
         }
-        else
-        {
-            Debug.LogWarning($"»конка дл€ {_item?.Name} не загружена");
-        }
 
         //if (itemButton != null)
         //{
@@ -34,10 +30,6 @@ public class ItemSlot : MonoBehaviour
 
     public void OnItemClick()
     {
-        Debug.Log("OnItemClick");
- 
-
-     
         DescriptionPopup.Instance.Show(_item);
     }
 }

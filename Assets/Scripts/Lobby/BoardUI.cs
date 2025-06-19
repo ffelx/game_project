@@ -21,7 +21,6 @@ public class BoardUI : MonoBehaviour
             //Sprite sprite = Resources.Load<Sprite>(Path.Combine(itemsFolder, item.Name));
             if (_itemSprite == null)
             {
-                Debug.LogWarning($"Спрайт не найден для {item.Name}");
                 continue;
             }
 

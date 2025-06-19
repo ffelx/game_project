@@ -51,14 +51,12 @@ namespace Assets.Scripts.Level_4
 
             if (dialogueBoxPrefab == null)
             {
-                Debug.LogError("DialogueBox prefab not assigned!", this);
                 return;
             }
 
             Canvas canvas = FindObjectOfType<Canvas>();
             if (canvas == null)
             {
-                Debug.LogError("No Canvas found in the scene!", this);
                 return;
             }
 
@@ -75,14 +73,12 @@ namespace Assets.Scripts.Level_4
             DialogueBox dialogue = dialogueObject.GetComponent<DialogueBox>();
             if (dialogue == null)
             {
-                Debug.LogError("DialogueBox component missing on prefab!", dialogueObject);
                 Destroy(dialogueObject);
                 return;
             }
 
             if (dialogueLines == null || dialogueLines.Length == 0)
             {
-                Debug.LogWarning("No dialogue lines assigned!", this);
                 Destroy(dialogueObject);
                 return;
             }

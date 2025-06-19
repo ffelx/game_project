@@ -12,9 +12,6 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
 
-
-    //private string _gameSceneName = "Level_1";
-
     public void Start()
     {
         Debug.Log(Application.persistentDataPath);
@@ -53,7 +50,6 @@ public class MainMenu : MonoBehaviour
         {
             GameObject managerObject = new GameObject("InventoryManager");
             managerObject.AddComponent<InventoryManager>();
-            Debug.Log("Count: " + InventoryManager.Instance.Count);
         }
     }
 }
