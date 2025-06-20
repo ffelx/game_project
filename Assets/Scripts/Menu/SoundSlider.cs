@@ -19,7 +19,6 @@ public class SoundSlider : MonoBehaviour
         if (slider != null)
         {
             slider.onValueChanged.AddListener(OnSliderChanged);
-            // Если хочешь сразу применить значение ползунка
             OnSliderChanged(slider.value);
         }
     }
@@ -30,7 +29,6 @@ public class SoundSlider : MonoBehaviour
 
         _mixer.SetFloat(MasterVolumeParam, volumeDb);
         GlobalData.Volume = value;   
-        //_mixer.SetFloat(SFXVolumeParam, volumeDb);
 
         Debug.Log($"Slider value: {value}, volume dB: {volumeDb}");
     }

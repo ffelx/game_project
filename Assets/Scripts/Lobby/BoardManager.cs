@@ -23,7 +23,7 @@ public class BoardManager : MonoBehaviour
     public class ItemData
     {
         public string name;
-        public string spritePath; // Путь относительно Resources/
+        public string spritePath; 
         public string description;
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DialogBoxDeactivator : MonoBehaviour
 {
+    [SerializeField] GameObject _objectToActivate;
     private void Start()
     {
         DialogBoxesSetActiveFalse();
+        _objectToActivate.SetActive(true);
     }
 
     public void DialogBoxesSetActiveFalse()
