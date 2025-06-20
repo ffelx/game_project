@@ -39,7 +39,7 @@ public class OptionsMenu : MonoBehaviour
     public void SaveOptions()
     {
         PlayerData data = SaveManager.Load();
-        data.volume = _slider.value;
+        data.volume = GlobalData.Volume;
         SaveManager.Save(data);
     }
 }

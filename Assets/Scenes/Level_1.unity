@@ -982,6 +982,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 818225856}
   - {fileID: 1804805076}
   - {fileID: 558755273}
   - {fileID: 545718267}
@@ -1000,6 +1001,7 @@ RectTransform:
   - {fileID: 2046297431}
   - {fileID: 1457261518}
   - {fileID: 2060782303}
+  - {fileID: 466895982}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1023,6 +1025,7 @@ MonoBehaviour:
   _dialogueBoxPrefab: {fileID: 4298783235472226916, guid: ac85db3182ff63944ba15784d2973aa8, type: 3}
   _splashScreenPrefab: {fileID: 224195344730208046, guid: cb6a02072ccf0d1479c17ed4b0c69e70, type: 3}
   _lines:
+  - 
   - "\u042D\u043A\u043E\u043A\u043E\u0440\u0430\u0431\u043B\u044C \xAB\u0413\u0435\u044F\xBB
     \u0432\u044B\u0445\u043E\u0434\u0438\u0442 \u0438\u0437 \u043E\u0431\u043B\u0430\u0447\u043D\u043E\u0433\u043E
     \u043F\u043E\u043A\u0440\u043E\u0432\u0430, \u043F\u0440\u043E\u0431\u0438\u0440\u0430\u044F\u0441\u044C
@@ -1177,6 +1180,9 @@ MonoBehaviour:
   _backgrounds: []
   _splashDuration: 3
   _fadeDuration: 1
+  _sprite1: {fileID: 0}
+  _sprite2: {fileID: 0}
+  _sprite3: {fileID: 0}
 --- !u!1 &232047647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1741,7 @@ GameObject:
   - component: {fileID: 287288573}
   - component: {fileID: 287288572}
   - component: {fileID: 287288571}
+  - component: {fileID: 287288574}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1893,6 +1900,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287288569}
   m_CullTransparentMesh: 1
+--- !u!114 &287288574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287288569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84834d8a320837b40b69555562f18bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &455524778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,6 +1924,7 @@ GameObject:
   - component: {fileID: 455524782}
   - component: {fileID: 455524781}
   - component: {fileID: 455524780}
+  - component: {fileID: 455524783}
   m_Layer: 5
   m_Name: ConvertButton
   m_TagString: Untagged
@@ -2074,6 +2094,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455524778}
   m_CullTransparentMesh: 1
+--- !u!114 &455524783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455524778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84834d8a320837b40b69555562f18bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &466895981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466895982}
+  - component: {fileID: 466895983}
+  m_Layer: 5
+  m_Name: Deacrivator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &466895982
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466895981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 225305463}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &466895983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466895981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe0f0ec4620ebb44ba0dffc7d7cae7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &492028917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,6 +3441,7 @@ GameObject:
   - component: {fileID: 726974337}
   - component: {fileID: 726974336}
   - component: {fileID: 726974335}
+  - component: {fileID: 726974338}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -3518,6 +3600,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726974333}
   m_CullTransparentMesh: 1
+--- !u!114 &726974338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726974333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84834d8a320837b40b69555562f18bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &743561158
 GameObject:
   m_ObjectHideFlags: 0
@@ -3530,6 +3624,7 @@ GameObject:
   - component: {fileID: 743561162}
   - component: {fileID: 743561161}
   - component: {fileID: 743561160}
+  - component: {fileID: 743561163}
   m_Layer: 5
   m_Name: ConvertButton
   m_TagString: Untagged
@@ -3699,6 +3794,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743561158}
   m_CullTransparentMesh: 1
+--- !u!114 &743561163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743561158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84834d8a320837b40b69555562f18bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &808046343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3780,6 +3887,232 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808046343}
   m_CullTransparentMesh: 1
+--- !u!1 &818225855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818225856}
+  - component: {fileID: 818225857}
+  m_Layer: 5
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &818225856
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818225855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 225305463}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &818225857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818225855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddcbdc9fdb3be3418a3e18487b21175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBoxPrefab: {fileID: 4298783235472226916, guid: ac85db3182ff63944ba15784d2973aa8, type: 3}
+  dialogueLines:
+  - text: 
+    backgroundSprite: {fileID: 21300000, guid: 3468851757991424da07375a846a7b02, type: 3}
+  - text: "\u042D\u043A\u043E\u043A\u043E\u0440\u0430\u0431\u043B\u044C \xAB\u0413\u0435\u044F\xBB
+      \u0432\u044B\u0445\u043E\u0434\u0438\u0442 \u0438\u0437 \u043E\u0431\u043B\u0430\u0447\u043D\u043E\u0433\u043E
+      \u043F\u043E\u043A\u0440\u043E\u0432\u0430, \u043F\u0440\u043E\u0431\u0438\u0440\u0430\u044F\u0441\u044C
+      \u0441\u043A\u0432\u043E\u0437\u044C \u043F\u043B\u043E\u0442\u043D\u0443\u044E
+      \u0437\u0430\u0432\u0435\u0441\u0443 \u043F\u044B\u043B\u0438 \u0438 \u0440\u0430\u0434\u0438\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0433\u043E
+      \u0441\u043C\u043E\u0433\u0430. \u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0435
+      \u0441\u0442\u0430\u0431\u0438\u043B\u0438\u0437\u0430\u0442\u043E\u0440\u044B
+      \u0433\u0443\u0434\u044F\u0442, \u043A\u043E\u043C\u043F\u0435\u043D\u0441\u0438\u0440\u0443\u044F
+      \u0442\u0443\u0440\u0431\u0443\u043B\u0435\u043D\u0442\u043D\u043E\u0441\u0442\u044C.\r\n\u0418\u0418-\u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442:\r\n\"\u041F\u043B\u0430\u043D\u043E\u0432\u0430\u044F
+      \u043F\u043E\u0441\u0430\u0434\u043A\u0430 \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0430.
+      \u041A\u043E\u043E\u0440\u0434\u0438\u043D\u0430\u0442\u044B \u0441\u043E\u0432\u043F\u0430\u0434\u0430\u044E\u0442
+      \u0441 \u0442\u043E\u0447\u043A\u043E\u0439 \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u0430,
+      \u0438\u0437\u0432\u043B\u0435\u0447\u0451\u043D\u043D\u043E\u0439 \u0438\u0437
+      \u043D\u0435\u043F\u043E\u043B\u043D\u044B\u0445 \u0441\u043F\u0443\u0442\u043D\u0438\u043A\u043E\u0432\u044B\u0445
+      \u0430\u0440\u0445\u0438\u0432\u043E\u0432. \u041C\u0435\u0441\u0442\u043D\u043E\u0441\u0442\u044C
+      \u0440\u0430\u043D\u0435\u0435 \u0437\u043D\u0430\u0447\u0438\u043B\u0430\u0441\u044C
+      \u043A\u0430\u043A \u0434\u0435\u0440\u0435\u0432\u043D\u044F. \u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435
+      \u2014 \u0443\u0442\u0440\u0430\u0447\u0435\u043D\u043E.\""
+    backgroundSprite: {fileID: 0}
+  - text: "\u0421\u043A\u0432\u043E\u0437\u044C \u0437\u0430\u0442\u0435\u043C\u043D\u0451\u043D\u043D\u043E\u0435
+      \u0441\u0442\u0435\u043A\u043B\u043E \u043A\u0430\u0431\u0438\u043D\u044B \u043F\u0440\u043E\u0441\u0442\u0443\u043F\u0430\u0435\u0442
+      \u0431\u0435\u0437\u0436\u0438\u0437\u043D\u0435\u043D\u043D\u044B\u0439 \u043F\u0435\u0439\u0437\u0430\u0436.
+      \u041A\u043E\u0433\u0434\u0430-\u0442\u043E \u0437\u0434\u0435\u0441\u044C
+      \u0431\u044B\u043B\u0438 \u043B\u0435\u0441\u0430 \u2014 \u0441\u0435\u0439\u0447\u0430\u0441
+      \u0442\u043E\u043B\u044C\u043A\u043E \u043E\u0431\u0443\u0433\u043B\u0435\u043D\u043D\u044B\u0435
+      \u043E\u0441\u0442\u043E\u0432\u044B \u0434\u0435\u0440\u0435\u0432\u044C\u0435\u0432,
+      \u0438\u0437\u043E\u0433\u043D\u0443\u0442\u044B\u0435, \u0441\u043B\u043E\u0432\u043D\u043E
+      \u0432 \u043C\u0443\u043A\u0435. \u0414\u043E\u043C\u0430 \u2014 \u0440\u0443\u0438\u043D\u044B,
+      \u043A\u0440\u044B\u0448\u0438 \u043F\u0440\u043E\u0432\u0430\u043B\u0438\u043B\u0438\u0441\u044C,
+      \u0441\u0442\u0435\u043D\u044B \u043F\u043E\u043A\u0440\u044B\u0442\u044B \u0441\u0435\u0440\u043E\u0439
+      \u043F\u044B\u043B\u044C\u044E. \u0420\u0435\u043A\u0430 \u2014 \u0442\u0451\u043C\u043D\u0430\u044F
+      \u043F\u043E\u043B\u043E\u0441\u0430, \u0432\u044F\u043B\u043E \u0442\u0435\u043A\u0443\u0449\u0430\u044F
+      \u0441\u0440\u0435\u0434\u0438 \u043C\u0451\u0440\u0442\u0432\u043E\u0439 \u0437\u0435\u043C\u043B\u0438.\r\n\u0418\u0418-\u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442:\r\n\"\u042D\u043A\u043E\u043B\u043E\u0433\u0438\u0447\u0435\u0441\u043A\u0430\u044F
+      \u043E\u0431\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430: \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0430\u044F.
+      \u041F\u043E\u0447\u0432\u0430 \u2014 \u0441\u0442\u0435\u0440\u0438\u043B\u0438\u0437\u043E\u0432\u0430\u043D\u0430.
+      \u041E\u0440\u0433\u0430\u043D\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u0430\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u044C
+      \u2014 \u043E\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442.
+      \u0412\u043E\u0434\u0430 \u2014 \u0445\u0438\u043C\u0438\u0447\u0435\u0441\u043A\u0438
+      \u0437\u0430\u0433\u0440\u044F\u0437\u043D\u0435\u043D\u0430. \u0412\u0435\u0440\u043E\u044F\u0442\u043D\u0430\u044F
+      \u043F\u0440\u0438\u0447\u0438\u043D\u0430 \u2014 \u043C\u043D\u043E\u0433\u043E\u043B\u0435\u0442\u043D\u044F\u044F
+      \u0442\u0435\u0445\u043D\u043E\u044D\u043A\u043E\u043B\u043E\u0433\u0438\u0447\u0435\u0441\u043A\u0430\u044F
+      \u043A\u0430\u0442\u0430\u0441\u0442\u0440\u043E\u0444\u0430.\""
+    backgroundSprite: {fileID: 0}
+  - text: "\u0424\u043B\u043E\u0440\u0435\u043D \u043C\u0435\u0434\u043B\u0435\u043D\u043D\u043E
+      \u0432\u0441\u0442\u0430\u0435\u0442 \u0441\u043E \u0441\u0432\u043E\u0435\u0433\u043E
+      \u043A\u0440\u0435\u0441\u043B\u0430. \u041F\u0430\u043B\u044C\u0446\u044B
+      \u0434\u0440\u043E\u0436\u0430\u0442 \u2014 \u043E\u0442 \u0447\u0435\u0433\u043E-\u0442\u043E,
+      \u0447\u0442\u043E \u043E\u043D \u0441\u0430\u043C \u043D\u0435 \u043C\u043E\u0436\u0435\u0442
+      \u043E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C. \u0421\u0435\u0440\u0434\u0446\u0435
+      \u0431\u044C\u0451\u0442\u0441\u044F \u0433\u043B\u0443\u0445\u043E, \u0431\u0443\u0434\u0442\u043E
+      \u043F\u044B\u0442\u0430\u044F\u0441\u044C \u0434\u043E\u0433\u043D\u0430\u0442\u044C
+      \u043D\u0435\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0435
+      \u043F\u0440\u043E\u0448\u043B\u043E\u0435. \u041E\u043D \u0447\u0443\u0432\u0441\u0442\u0432\u0443\u0435\u0442
+      \u0441\u0442\u0440\u0430\u043D\u043D\u043E\u0435 \u0434\u0430\u0432\u043B\u0435\u043D\u0438\u0435
+      \u0432 \u0433\u0440\u0443\u0434\u0438.\r\n\u0424\u043B\u043E\u0440\u0435\u043D
+      (\u043C\u044B\u0441\u043B\u0435\u043D\u043D\u043E):\r\n\"...\u041F\u043E\u0447\u0435\u043C\u0443
+      \u043C\u043D\u0435 \u0437\u043D\u0430\u043A\u043E\u043C\u043E \u044D\u0442\u043E
+      \u043C\u0435\u0441\u0442\u043E?.. \u042F \u043D\u0435 \u0434\u043E\u043B\u0436\u0435\u043D
+      \u0435\u0433\u043E \u043F\u043E\u043C\u043D\u0438\u0442\u044C. \u042F \u0432\u0435\u0434\u044C...\"\r\n\u041E\u043D
+      \u0437\u0430\u043C\u043E\u043B\u043A\u0430\u0435\u0442, \u0447\u0443\u0432\u0441\u0442\u0432\u0443\u044F,
+      \u043A\u0430\u043A \u0432 \u0433\u043E\u043B\u043E\u0432\u0435 \u0432\u0441\u043F\u044B\u0445\u0438\u0432\u0430\u0435\u0442
+      \u0431\u043E\u043B\u044C \u2014 \u0438 \u0442\u0430\u043A \u0436\u0435 \u0431\u044B\u0441\u0442\u0440\u043E
+      \u0443\u0433\u0430\u0441\u0430\u0435\u0442."
+    backgroundSprite: {fileID: 0}
+  - text: "\u041D\u0430 \u043C\u043E\u043D\u0438\u0442\u043E\u0440\u0435 \u043C\u0435\u043B\u044C\u043A\u0430\u0435\u0442
+      \u0441\u0442\u0430\u0440\u0430\u044F \u0444\u043E\u0442\u043E\u0433\u0440\u0430\u0444\u0438\u044F
+      \u2014 \u0447\u0430\u0441\u0442\u0438\u0447\u043D\u043E \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u043D\u043E\u0435
+      \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435. \u0421\u0438\u043B\u0443\u044D\u0442
+      \u0433\u0440\u0443\u043F\u043F\u044B \u043B\u044E\u0434\u0435\u0439 \u043D\u0430
+      \u0444\u043E\u043D\u0435 \u044D\u0442\u043E\u0439 \u0434\u0435\u0440\u0435\u0432\u043D\u0438.
+      \u041E\u0434\u0438\u043D \u0438\u0437 \u043D\u0438\u0445 \u0447\u0435\u043C-\u0442\u043E
+      \u043F\u043E\u0445\u043E\u0436 \u043D\u0430 \u043D\u0435\u0433\u043E.\r\n\u0418\u0418-\u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442:\r\n\"\u0421\u043E\u0432\u043F\u0430\u0434\u0435\u043D\u0438\u0435
+      \u043C\u043E\u0440\u0444\u043E\u043B\u043E\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0445
+      \u043F\u0440\u0438\u0437\u043D\u0430\u043A\u043E\u0432: 43%. \u0422\u043E\u0447\u043D\u043E\u0441\u0442\u044C
+      \u043D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u0430 \u0434\u043B\u044F
+      \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F
+      \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0438. \u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u044F:
+      \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C \u0441\u0431\u043E\u0440
+      \u0432\u0438\u0437\u0443\u0430\u043B\u044C\u043D\u044B\u0445 \u0438 \u0442\u0435\u043A\u0441\u0442\u043E\u0432\u044B\u0445
+      \u0430\u0440\u0445\u0438\u0432\u043E\u0432.\""
+    backgroundSprite: {fileID: 0}
+  - text: 
+    backgroundSprite: {fileID: 21300000, guid: 03bd753a7065418479021c8624e78e65, type: 3}
+  - text: "\u0424\u043B\u043E\u0440\u0435\u043D \u0432\u044B\u0445\u043E\u0434\u0438\u0442
+      \u043D\u0430 \u043F\u043E\u0432\u0435\u0440\u0445\u043D\u043E\u0441\u0442\u044C.
+      \u0412\u043E\u0437\u0434\u0443\u0445 \u0442\u044F\u0436\u0451\u043B\u044B\u0439,
+      \u043F\u0430\u0445\u043D\u0435\u0442 \u043E\u0437\u043E\u043D\u043E\u043C \u0438
+      \u043F\u0435\u043F\u043B\u043E\u043C. \u041D\u0430\u0434 \u0433\u043E\u043B\u043E\u0432\u043E\u0439
+      \u2014 \u0441\u0435\u0440\u043E\u0435 \u043D\u0435\u0431\u043E, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u043C
+      \u043D\u0435 \u0432\u0438\u0434\u043D\u043E \u043D\u0438 \u0441\u043E\u043B\u043D\u0446\u0430,
+      \u043D\u0438 \u0437\u0432\u0451\u0437\u0434. \u0422\u043E\u043B\u044C\u043A\u043E
+      \u0441\u043B\u0430\u0431\u043E\u0435 \u0440\u0430\u0441\u0441\u0435\u044F\u043D\u043D\u043E\u0435
+      \u0441\u0432\u0435\u0447\u0435\u043D\u0438\u0435, \u0431\u0443\u0434\u0442\u043E
+      \u0441\u0430\u043C\u0430 \u043F\u043B\u0430\u043D\u0435\u0442\u0430 \u0441\u0442\u044B\u0434\u0438\u0442\u0441\u044F
+      \u043F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0441\u0432\u043E\u0451 \u043B\u0438\u0446\u043E.\r\n\u0418\u0418-\u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442:\r\n\"\u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0435\u043D\u0438\u0435:
+      \u043D\u0430\u0440\u0443\u0448\u0435\u043D \u0434\u043E\u0441\u0442\u0443\u043F
+      \u043A \u0434\u043E\u043B\u0433\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0439
+      \u043F\u0430\u043C\u044F\u0442\u0438 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F.
+      \u041F\u0440\u0438\u0447\u0438\u043D\u044B: \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u044B.
+      \u0410\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u043D \u043F\u0440\u043E\u0442\u043E\u043A\u043E\u043B
+      \u0441\u0430\u043C\u043E\u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u044F
+      \u0441\u043E\u0437\u043D\u0430\u043D\u0438\u044F. \u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430,
+      \u0441\u043E\u0445\u0440\u0430\u043D\u044F\u0439\u0442\u0435 \u0430\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u044C
+      \u2014 \u044D\u0442\u043E \u0443\u0441\u043A\u043E\u0440\u0438\u0442 \u043F\u0440\u043E\u0446\u0435\u0441\u0441.\""
+    backgroundSprite: {fileID: 0}
+  - text: "\u041E\u043D \u043C\u0435\u0434\u043B\u0435\u043D\u043D\u043E \u0438\u0434\u0451\u0442
+      \u043F\u043E \u0440\u0430\u0441\u0442\u0440\u0435\u0441\u043A\u0430\u0432\u0448\u0435\u0439\u0441\u044F
+      \u0437\u0435\u043C\u043B\u0435. \u041F\u043E\u0434 \u0431\u043E\u0442\u0438\u043D\u043A\u0430\u043C\u0438
+      \u0445\u0440\u0443\u0441\u0442\u0438\u0442 \u0447\u0442\u043E-\u0442\u043E
+      \u2014 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E, \u043E\u0441\u0442\u0430\u0442\u043A\u0438
+      \u043A\u0435\u0440\u0430\u043C\u0438\u043A\u0438 \u0438\u043B\u0438 \u0441\u0442\u0435\u043A\u043B\u0430.
+      \u0412\u0435\u0442\u0435\u0440 \u043F\u0440\u0438\u043D\u043E\u0441\u0438\u0442
+      \u043E\u0442\u0434\u0430\u043B\u0451\u043D\u043D\u044B\u0439 \u0441\u0442\u043E\u043D
+      \u043C\u0435\u0442\u0430\u043B\u043B\u0430, \u0438\u0441\u043A\u0430\u0436\u0451\u043D\u043D\u044B\u0439
+      \u044D\u0445\u043E\u043C \u043F\u0443\u0441\u0442\u043E\u0442\u044B.\r\n\u0424\u043B\u043E\u0440\u0435\u043D
+      (\u043C\u044B\u0441\u043B\u0435\u043D\u043D\u043E):\r\n\"...\u041A\u0442\u043E
+      \u044F? \u041F\u043E\u0447\u0435\u043C\u0443 \u044F \u043E\u0434\u0438\u043D?
+      \u0427\u0442\u043E \u044F \u0434\u043E\u043B\u0436\u0435\u043D \u043D\u0430\u0439\u0442\u0438
+      \u0432 \u044D\u0442\u043E\u0439 \u0440\u0430\u0437\u0440\u0443\u0445\u0435?\""
+    backgroundSprite: {fileID: 21300000, guid: 03bd753a7065418479021c8624e78e65, type: 3}
+  - text: "\u041F\u0440\u043E\u0435\u043A\u0446\u0438\u043E\u043D\u043D\u044B\u0439
+      \u043C\u043E\u0434\u0443\u043B\u044C \u0418\u0418 \u0432\u0441\u043F\u044B\u0445\u0438\u0432\u0430\u0435\u0442
+      \u043C\u044F\u0433\u043A\u0438\u043C \u0441\u0432\u0435\u0442\u043E\u043C \u2014
+      \u0433\u043E\u043B\u0443\u0431\u043E\u0435 \u043C\u0435\u0440\u0446\u0430\u043D\u0438\u0435
+      \u0432 \u0441\u0435\u0440\u043E\u043C \u043C\u0438\u0440\u0435.\r\n\u0418\u0418-\u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442:\r\n\"\u0417\u0430\u0434\u0430\u0447\u0430:
+      \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u0440\u0438\u0447\u0438\u043D\u044B
+      \u0434\u0435\u0433\u0440\u0430\u0434\u0430\u0446\u0438\u0438 \u043E\u043A\u0440\u0443\u0436\u0430\u044E\u0449\u0435\u0439
+      \u0441\u0440\u0435\u0434\u044B. \u0412\u0442\u043E\u0440\u0438\u0447\u043D\u0430\u044F
+      \u0446\u0435\u043B\u044C: \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+      \u0443\u0442\u0440\u0430\u0447\u0435\u043D\u043D\u0443\u044E \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E
+      \u043E \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435.
+      \u041F\u0440\u0438\u043E\u0440\u0438\u0442\u0435\u0442: \u0432\u044B\u0441\u043E\u043A\u0438\u0439.
+      \u041C\u0435\u0442\u043E\u0434\u044B: \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435,
+      \u0430\u043D\u0430\u043B\u0438\u0437, \u0440\u0435\u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F.\""
+    backgroundSprite: {fileID: 21300000, guid: 03bd753a7065418479021c8624e78e65, type: 3}
+  - text: "\u0424\u043B\u043E\u0440\u0435\u043D \u043E\u0431\u043E\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044F.
+      \u0412\u0434\u0430\u043B\u0435\u043A\u0435 \u2014 \u0442\u0435\u043D\u044C.
+      \u0421\u0438\u043B\u0443\u044D\u0442 \u0440\u0430\u0437\u0440\u0443\u0448\u0435\u043D\u043D\u043E\u0439
+      \u043A\u043E\u043B\u043E\u043A\u043E\u043B\u044C\u043D\u0438 \u0438\u043B\u0438
+      \u0431\u0430\u0448\u043D\u0438? \u0418\u043B\u0438 \u043F\u0440\u043E\u0441\u0442\u043E
+      \u0438\u043B\u043B\u044E\u0437\u0438\u044F, \u0432\u044B\u0437\u0432\u0430\u043D\u043D\u0430\u044F
+      \u043F\u0435\u0440\u0435\u043D\u0430\u043F\u0440\u044F\u0436\u0435\u043D\u0438\u0435\u043C?
+      \u041E\u043D \u043D\u0435 \u0437\u043D\u0430\u0435\u0442. \u041D\u043E \u0447\u0442\u043E-\u0442\u043E
+      \u0432\u043D\u0443\u0442\u0440\u0438 \u043F\u043E\u0434\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442
+      \u2014 \u043F\u0443\u0442\u044C \u043B\u0435\u0436\u0438\u0442 \u0442\u0443\u0434\u0430.\r\n\u0418\u0418-\u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442:\r\n\"\u041F\u0435\u0440\u0432\u0438\u0447\u043D\u044B\u0439
+      \u043C\u0430\u0440\u0448\u0440\u0443\u0442 \u043F\u0440\u043E\u043B\u043E\u0436\u0435\u043D.
+      \u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0435\u043D\u0438\u0435:
+      \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E \u043F\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u0435
+      \u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u044B\u0445 \u0444\u043E\u0440\u043C
+      \u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438. \u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0443\u0435\u0442\u0441\u044F
+      \u0441\u043E\u0431\u043B\u044E\u0434\u0430\u0442\u044C \u043E\u0441\u0442\u043E\u0440\u043E\u0436\u043D\u043E\u0441\u0442\u044C.\""
+    backgroundSprite: {fileID: 0}
+  - text: "\u041E\u043D \u0434\u0435\u043B\u0430\u0435\u0442 \u043F\u0435\u0440\u0432\u044B\u0439
+      \u0448\u0430\u0433. \u041F\u0435\u043F\u0435\u043B \u0432\u0437\u043C\u0435\u0442\u0430\u0435\u0442\u0441\u044F
+      \u0432 \u0432\u043E\u0437\u0434\u0443\u0445. \u0415\u0433\u043E \u043F\u0443\u0442\u044C
+      \u043D\u0430\u0447\u0438\u043D\u0430\u0435\u0442\u0441\u044F \u0441 \u043F\u0443\u0441\u0442\u043E\u0442\u044B.
+      \u041D\u043E \u0433\u0434\u0435-\u0442\u043E, \u0432 \u0433\u043B\u0443\u0431\u0438\u043D\u0435,
+      \u0442\u0435\u043F\u043B\u0438\u0442\u0441\u044F \u043E\u0449\u0443\u0449\u0435\u043D\u0438\u0435:
+      \u043E\u0442\u0432\u0435\u0442\u044B \u0435\u0441\u0442\u044C. \u0418\u0445
+      \u043D\u0443\u0436\u043D\u043E \u0442\u043E\u043B\u044C\u043A\u043E \u043D\u0430\u0439\u0442\u0438.
+      \u0414\u0430\u0436\u0435 \u0435\u0441\u043B\u0438 \u0434\u043B\u044F \u044D\u0442\u043E\u0433\u043E
+      \u043F\u0440\u0438\u0434\u0451\u0442\u0441\u044F \u0432\u0441\u043F\u043E\u043C\u043D\u0438\u0442\u044C
+      \u0442\u043E, \u0447\u0442\u043E \u0431\u044B\u043B\u043E \u0437\u0430\u0431\u044B\u0442\u043E
+      \u043D\u0435 \u0441\u043B\u0443\u0447\u0430\u0439\u043D\u043E.\r\n\u0424\u043B\u043E\u0440\u0435\u043D
+      (\u0442\u0438\u0445\u043E):\r\n\"...\u041F\u043E\u0448\u043B\u0438. \u041F\u043E\u043A\u0430\u0436\u0438
+      \u043C\u043D\u0435 \u043F\u0440\u0430\u0432\u0434\u0443.\""
+    backgroundSprite: {fileID: 0}
+  background: {fileID: 1699401408}
+  onEndDialog:
+    m_PersistentCalls:
+      m_Calls: []
+  imageToFlip: {fileID: 0}
+  dialogObj: {fileID: 466895981}
 --- !u!1 &867603806
 GameObject:
   m_ObjectHideFlags: 0
@@ -3861,6 +4194,7 @@ GameObject:
   - component: {fileID: 929537608}
   - component: {fileID: 929537607}
   - component: {fileID: 929537606}
+  - component: {fileID: 929537609}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -4019,6 +4353,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929537604}
   m_CullTransparentMesh: 1
+--- !u!114 &929537609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929537604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84834d8a320837b40b69555562f18bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &972514983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5228,6 +5574,7 @@ GameObject:
   - component: {fileID: 1603856840}
   - component: {fileID: 1603856839}
   - component: {fileID: 1603856838}
+  - component: {fileID: 1603856841}
   m_Layer: 5
   m_Name: ConvertButton
   m_TagString: Untagged
@@ -5397,6 +5744,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603856836}
   m_CullTransparentMesh: 1
+--- !u!114 &1603856841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603856836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84834d8a320837b40b69555562f18bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1699401406
 GameObject:
   m_ObjectHideFlags: 0

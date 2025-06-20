@@ -18,7 +18,10 @@ public class StartScenePrologue : MonoBehaviour
     [SerializeField] private float _splashDuration = 2f;  
     [SerializeField] private float _fadeDuration = 1f;
 
-    
+    [SerializeField] private Sprite _sprite1;
+    [SerializeField] private Sprite _sprite2;
+    [SerializeField] private Sprite _sprite3;
+
 
     private static int _countItems = 0;
 
@@ -60,7 +63,7 @@ public class StartScenePrologue : MonoBehaviour
 
         canvasGroup.alpha = 0f;
         Destroy(splash);
-        TriggerDialogue();
+        //TriggerDialogue();
     }
 
     public void TriggerDialogue()
@@ -69,10 +72,19 @@ public class StartScenePrologue : MonoBehaviour
 
         for (int i = 0; i < _lines.Length; i++)
         {
+            Sprite sprite;
+            if (i < 3)
+            {
+                sprite = _sprite1;
+            }
+            else
+            {
+                sprite = _sprite2;
+            }
             dialogueLines[i] = new DialogueLine
             {
                 text = _lines[i],
-                backgroundSprite = i < _backgrounds.Length ? _backgrounds[i] : null
+                backgroundSprite = sprite
             };
         }
 

@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class BasketController : MonoBehaviour
 {
+
     private bool _isWin = false;
     [SerializeField] private Transform[] _lanes;
     private static Text _scoreText;
     public Text scoreText;
 
+    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private GameObject _game;
     [SerializeField] private GameObject _gameCanvas;
     [SerializeField] private GameObject _gameCanvas2;
@@ -37,6 +39,7 @@ public class BasketController : MonoBehaviour
     private void Start()
     {
         _scoreText = scoreText;
+        _audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -89,6 +92,10 @@ public class BasketController : MonoBehaviour
 
     public void CollectTrash()
     {
+        if (!_isWin)
+        {
+            _audioManager.PlayNetClickSound();
+        }
         _score += 1;
         _trashCollected += 1;
         if (_score >= _maxScore)

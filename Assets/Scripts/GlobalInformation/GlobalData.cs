@@ -10,5 +10,6 @@ namespace Assets.Scripts.GlobalInformation
     {
         public static string PreviousSceneName { get; set; }
         public static float Volume { get; set; }
+
     }
 }

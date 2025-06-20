@@ -4,13 +4,16 @@ using Assets.Scripts.Menu;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
+    [SerializeField] private AudioMixer _mixer;
 
     public void Start()
     {
@@ -24,7 +27,9 @@ public class MainMenu : MonoBehaviour
         PlayerData data = SaveManager.Load();
         GlobalData.PreviousSceneName = "Level_" + (data.currentLevel - 1);
         GlobalData.Volume = data.volume;
-        //_slider.value = data.volume;
+        _mixer.SetFloat("MasterVolume", Mathf.Log10(GlobalData.Volume) * 20);
+        //_mixer.SetFloat("SFX", Mathf.Log10(GlobalData.Volume) * 20);
+        _slider.value = data.volume;
     }
 
     public void PlayGame()

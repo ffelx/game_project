@@ -15,6 +15,8 @@ public class PipeCell : MonoBehaviour
 
     private PipeGridManager _manager;
 
+    private AudioManager _audio;
+
     public bool isStartpoint = false;
     public bool isEndpoint = false;
 
@@ -54,6 +56,7 @@ public class PipeCell : MonoBehaviour
     {
         UpdateSprite();
         _manager = FindObjectOfType<PipeGridManager>();
+        _audio = FindObjectOfType<AudioManager>();  
     }
 
     public void UpdateSprite()
@@ -88,6 +91,7 @@ public class PipeCell : MonoBehaviour
 
     public void RotatePipe()
     {
+        _audio.PlayPipeSound();
         rotation = (rotation - 90) % 360; 
         Debug.Log($"Повернута труба типа {type} на {rotation} градусов");
 
